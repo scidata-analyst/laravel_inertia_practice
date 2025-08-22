@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { Ziggy } from './ziggy'
+import { AuthProvider } from './context/AuthContext'
 
 createInertiaApp({
     resolve: name =>
@@ -13,6 +14,10 @@ createInertiaApp({
             import.meta.glob('./Pages/**/*.jsx')
         ),
     setup({ el, App, props }) {
-        createRoot(el).render(<App {...props} />)
+        createRoot(el).render(
+            <AuthProvider>
+                <App {...props} />
+            </AuthProvider>
+        )
     },
 })

@@ -1,6 +1,7 @@
-import { Head, useForm, usePage } from '@inertiajs/react'
+import { Head, useForm, usePage, Link } from '@inertiajs/react'
 import { route } from 'ziggy-js'
 import { Ziggy } from '@/ziggy'
+import Layout from '../Layout'
 
 export default function Create() {
     const { flash } = usePage().props
@@ -22,9 +23,9 @@ export default function Create() {
     }
 
     return (
-        <>
+        <Layout>
             <Head title="Create Product" />
-            <div className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow rounded">
+            <div className="mt-10 p-6 bg-white shadow rounded">
                 <h1 className="text-3xl font-bold text-center mb-6">Create Product</h1>
 
                 {flash?.success && (
@@ -112,6 +113,16 @@ export default function Create() {
                     </button>
                 </form>
             </div>
-        </>
+
+
+            <div className="flex justify-center mt-6">
+                <Link
+                    href={route('product.index', undefined, undefined, Ziggy)}
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded shadow"
+                >
+                    Back to Products
+                </Link>
+            </div>
+        </Layout>
     )
 }

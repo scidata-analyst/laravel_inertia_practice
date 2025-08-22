@@ -19,6 +19,8 @@
         "vite": "^7.0.4"
     },
     "dependencies": {
+        "@headlessui/react": "^2.2.7",
+        "@heroicons/react": "^2.2.0",
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/react": "^2.1.1",
         "react": "^18.3.1",
